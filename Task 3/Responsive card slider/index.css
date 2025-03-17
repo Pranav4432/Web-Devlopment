@@ -1,0 +1,113 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: system-ui, -apple-system, sans-serif;
+  background-color: #f8fafc;
+  color: #1e293b;
+  min-height: 100vh;
+}
+
+.container {
+  max-width: 100%;
+  padding: 2rem 1rem;
+}
+
+.title {
+  text-align: center;
+  font-size: 2.5rem;
+  color: #1e293b;
+  margin-bottom: 2rem;
+  font-weight: 700;
+}
+
+.card-slider {
+  display: flex;
+  gap: 1.5rem;
+  padding: 1rem;
+  overflow-x: auto;
+  scroll-behavior: smooth;
+  -webkit-overflow-scrolling: touch;
+  scrollbar-width: none; /* Firefox */
+  -ms-overflow-style: none; /* IE and Edge */
+}
+
+.card-slider::-webkit-scrollbar {
+  display: none; /* Chrome, Safari and Opera */
+}
+
+.card {
+  flex: 0 0 auto;
+  width: 300px;
+  background: white;
+  border-radius: 1rem;
+  overflow: hidden;
+  box-shadow: 0 4px 6px -1px rgb(0 0 0 / 0.1), 0 2px 4px -2px rgb(0 0 0 / 0.1);
+  transition: transform 0.2s ease-in-out;
+}
+
+.card:hover {
+  transform: translateY(-4px);
+}
+
+.card-image {
+  width: 100%;
+  height: 200px;
+  object-fit: cover;
+}
+
+.card-content {
+  padding: 1.5rem;
+}
+
+.card-content h2 {
+  font-size: 1.25rem;
+  font-weight: 600;
+  color: #1e293b;
+  margin-bottom: 0.5rem;
+}
+
+.card-content p {
+  color: #64748b;
+  line-height: 1.5;
+}
+
+/* Responsive Design */
+@media (min-width: 640px) {
+  .container {
+    padding: 3rem 2rem;
+  }
+  
+  .card {
+    width: 350px;
+  }
+}
+
+@media (min-width: 1024px) {
+  .container {
+    padding: 4rem 2rem;
+  }
+
+  .title {
+    font-size: 3rem;
+  }
+  
+  .card {
+    width: 400px;
+  }
+}
+
+/* Snap Scrolling for Better UX */
+@supports (scroll-snap-type: x mandatory) {
+  .card-slider {
+    scroll-snap-type: x mandatory;
+    scroll-padding: 1rem;
+  }
+  
+  .card {
+    scroll-snap-align: start;
+  }
+}
